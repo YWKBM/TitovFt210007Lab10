@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitovFt210007Lab10", "TitovFt210007Lab10\TitovFt210007Lab10.csproj", "{51252D1E-9440-4DAB-A9F2-2C0A2A260C62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51252D1E-9440-4DAB-A9F2-2C0A2A260C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51252D1E-9440-4DAB-A9F2-2C0A2A260C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51252D1E-9440-4DAB-A9F2-2C0A2A260C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51252D1E-9440-4DAB-A9F2-2C0A2A260C62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1A3E982-9940-4A03-8FD5-0740F3866610}
+	EndGlobalSection
+EndGlobal
