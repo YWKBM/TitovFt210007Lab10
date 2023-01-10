@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TitovFt210007Lab10
 {
     internal class Program
     {
-        //Dictionary<string, int> messages = new Dictionary<string, string>
-        //{
-        //    {"Enter sum", "Введите сумму" },
-        //    {"Quantity of bills to pay", "Колличество купюр для оплаты" },
-        //    {"Wrong input data", "Неправильны входные данные" }
-        //};
-
-        Dictionary<int, string> Engessages = new Dictionary<int, string>
+        Dictionary<int, string> engMessages = new Dictionary<int, string>
         {
             {0, "Enter sum" },
             {1, "Quantity of bills to pay"},
@@ -28,22 +24,25 @@ namespace TitovFt210007Lab10
         };
 
 
-
-
-        static void ChoseLang(string lang)
+        static string ChoseLang()
         {
-            Console.WriteLine("Choose language: (Enter \"ru\" or \"eng\")");
-            lang = Console.ReadLine();
+            Console.WriteLine("Choose language/Выберете язык: (Enter \"ru\" or \"eng\")");
+            string lang = Console.ReadLine();
+            return lang;
         }
 
-        static string SendMessage(string lang, int currentMessage)
+
+        static string SendMessage(int number, string lang,  Func<string, bool> isEng)
         {
-            string msg = null;
-            if (lang == "ru")
+            Languages langs = new Languages();
+            if (isEng(lang))
             {
-                
+                return string.Join("", langs.Eng.Where(z => z.Key == number).Select(z => z.Value));
             }
-            return msg;
+            else
+            {
+                return string.Join("", langs.Ru.Where(z => z.Key == number).Select(z => z.Value));
+            }
         }
 
         static int BillsAnalyses(int n)
@@ -62,18 +61,16 @@ namespace TitovFt210007Lab10
 
         static void Main(string[] args)
         {
-            while (true) 
+            string lang = ChoseLang();
+            Console.WriteLine((SendMessage(0, lang, (l) => lang == "eng"))); 
+            try //обработка ошибок ввода
             {
-                Console.Write("Enter the sum \n>");
-                try //обработка ошибок ввода
-                {
-                    int n = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Quantity of bills to pay: " + BillsAnalyses(n));
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Wrong input data");
-                }
+                int n = int.Parse(Console.ReadLine());
+                Console.WriteLine((SendMessage(1, lang, (l) => lang == "eng") + " " +BillsAnalyses(n))); 
+            }
+            catch (FormatException e)    
+            {
+                    Console.WriteLine((SendMessage(2, lang, (l) => lang == "eng")));
             }
         }
     }
