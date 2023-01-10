@@ -9,21 +9,6 @@ namespace TitovFt210007Lab10
 {
     internal class Program
     {
-        Dictionary<int, string> engMessages = new Dictionary<int, string>
-        {
-            {0, "Enter sum" },
-            {1, "Quantity of bills to pay"},
-            {2, "Wrong input data" }
-        };
-
-        Dictionary<int, string> ruMessages = new Dictionary<int, string>
-        {
-            {0, "Введите сумму" },
-            {1, "Колличество купюр для оплаты" },
-            {2, "Неправильны входные данные" }
-        };
-
-
         static string ChoseLang()
         {
             Console.WriteLine("Choose language/Выберете язык: (Enter \"ru\" or \"eng\")");
